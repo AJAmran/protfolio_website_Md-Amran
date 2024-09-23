@@ -23,7 +23,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="mt-6 text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-700"
+            className="mt-6 text-sm sm:text-lg lg:text-xl leading-relaxed text-gray-700"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}

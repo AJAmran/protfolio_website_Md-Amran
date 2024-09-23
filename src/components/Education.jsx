@@ -1,33 +1,63 @@
-import React from 'react';
+import React from "react";
+import { motion } from "framer-motion";
 
 const education = [
   {
-    degree: 'BSc in Computer Science',
-    institution: 'University of Dhaka',
-    duration: '2018 - 2022',
-    description: 'Graduated with distinction, specialized in software engineering and web development.'
+    degree: "Bachelor of Science in Computer Science and Engineering",
+    institution: "The Institution of Engineers, Bangladesh",
+    duration: "Running",
+    description:
+      "Currently pursuing a degree with a focus on software engineering and web development.",
   },
   {
-    degree: 'Diploma in Web Development',
-    institution: 'Xinxian Hospitality Training Institute',
-    duration: '2022 - 2023',
-    description: 'Specialized in MERN stack development.'
+    degree: "Diploma in Computer Science",
+    institution: "Chattogram Polytechnic Institute",
+    duration: "2019 - 2023",
+    description:
+      "Comprehensive training for diverse sectors. Equips me with skills to thrive as a web developer and contribute to the economy and cultural areas.",
+    grade: "3.50/4",
+  },
+  {
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Department of Science",
+    duration: "Completed",
+    description:
+      "Public examination conducted for the successful completion of secondary education.",
+    grade: "4.61/5",
   },
 ];
 
 const Education = () => {
   return (
-    <section id="education" className="py-16 bg-background">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-heading text-primary mb-6">Education</h2>
-        <div className="space-y-8">
+    <section id="education" className="py-16 bg-gray-50">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-primary text-center mb-12">
+          Education
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {education.map((edu, index) => (
-            <div key={index} className="border-l-2 border-primary pl-6">
-              <h3 className="text-xl font-bold">{edu.degree}</h3>
-              <p className="text-mutedText">{edu.institution}</p>
-              <p className="text-mutedText italic">{edu.duration}</p>
-              <p className="text-mutedText mt-2">{edu.description}</p>
-            </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="bg-white shadow-lg rounded-lg overflow-hidden p-6 hover:shadow-xl transition-shadow duration-300"
+            >
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900">
+                {edu.degree}
+              </h3>
+              <p className="text-lg text-primary font-medium">
+                {edu.institution}
+              </p>
+              <p className="text-slate-500 italic">{edu.duration}</p>
+              {edu.grade && (
+                <p className="text-sm text-slate-700 mt-1">
+                  Grade: {edu.grade}
+                </p>
+              )}
+              <p className="text-slate-700 mt-4">{edu.description}</p>
+            </motion.div>
           ))}
         </div>
       </div>

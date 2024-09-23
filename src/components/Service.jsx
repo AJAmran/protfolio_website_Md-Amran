@@ -11,7 +11,7 @@ export default function Service() {
     <section className="bg-background text-text">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div className="mx-auto max-w-lg text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl animate-fadeIn">
+          <h2 className="text-3xl text-primary font-bold sm:text-4xl animate-fadeIn">
             My Web Development Services
           </h2>
           <p className="mt-4 text-mutedText animate-fadeIn">

@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
@@ -89,7 +88,7 @@ const Projects = () => {
           My Projects
         </h2>
         <p className="text-lg text-mutedText mb-10 text-center">
-          A showcase of some of the professional projects I've worked on,
+          A showcase of some of the professional projects I have worked on,
           utilizing a wide range of modern technologies.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">

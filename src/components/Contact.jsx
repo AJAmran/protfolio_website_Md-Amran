@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";

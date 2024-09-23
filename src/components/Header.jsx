@@ -1,17 +1,60 @@
-import { useState } from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { useState, useEffect } from "react";
+
+// Sections for the navigation (ensure these IDs match your sections in the page)
+const sections = [
+  "about",
+  "services",
+  "skills",
+  "projects", // Ensure the ID is correct
+  "experience",
+  "education",
+  "contact", // Ensure the ID is correct
+];
 
 const Header = () => {
-  // State to toggle the mobile menu
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
-  // Function to toggle menu visibility
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Function to handle scrolling and highlight active section
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            // Only set active section if it's not the hero section
+            if (sectionId !== "hero") {
+              setActiveSection(sectionId);
+            }
+          }
+        });
+      },
+      { threshold: 0.6 } // Trigger when 60% of the section is in view
+    );
+
+    sections.forEach((section) => {
+      const sectionElement = document.getElementById(section);
+      if (sectionElement) {
+        observer.observe(sectionElement);
+      }
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        const sectionElement = document.getElementById(section);
+        if (sectionElement) {
+          observer.unobserve(sectionElement);
+        }
+      });
+    };
+  }, []);
+
   return (
-    <header className="bg-primary text-white">
+    <header className="bg-primary text-white sticky top-0 z-50">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
@@ -24,58 +67,23 @@ const Header = () => {
           <div className="hidden md:block">
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-sm">
-                <li>
-                  <a
-                    className="text-white transition hover:text-teal-500"
-                    href="#"
-                  >
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="text-white transition hover:text-teal-500"
-                    href="#"
-                  >
-                    Services
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-white transition hover:text-teal-500"
-                    href="#"
-                  >
-                    Skills
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-white transition hover:text-teal-500"
-                    href="#"
-                  >
-                    Projects
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-white transition hover:text-teal-500"
-                    href="#"
-                  >
-                    Experience
-                  </a>
-                </li>
-
-                <li>
-                  <a
-                    className="text-white transition hover:text-teal-500"
-                    href="#"
-                  >
-                    Education
-                  </a>
-                </li>
+                {sections.map((section) => (
+                  <li key={section}>
+                    <a
+                      href={`#${section}`}
+                      className={`text-white transition relative hover:text-teal-500 ${
+                        activeSection === section ? "underline-active" : ""
+                      }`}
+                    >
+                      {section.charAt(0).toUpperCase() + section.slice(1)}
+                      <span
+                        className={`underline absolute bottom-0 left-0 h-0.5 w-full bg-teal-500 transition-transform duration-300 scale-x-0 ${
+                          activeSection === section ? "scale-x-100" : ""
+                        }`}
+                      ></span>
+                    </a>
+                  </li>
+                ))}
               </ul>
             </nav>
           </div>
@@ -122,60 +130,17 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden">
             <ul className="mt-4 space-y-2 text-center text-sm text-white">
-              <li>
-                <a
-                  className="block px-4 py-2 hover:text-teal-500"
-                  href="#"
-                  onClick={toggleMenu}
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block px-4 py-2 hover:text-teal-500"
-                  href="#"
-                  onClick={toggleMenu}
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block px-4 py-2 hover:text-teal-500"
-                  href="#"
-                  onClick={toggleMenu}
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block px-4 py-2 hover:text-teal-500"
-                  href="#"
-                  onClick={toggleMenu}
-                >
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block px-4 py-2 hover:text-teal-500"
-                  href="#"
-                  onClick={toggleMenu}
-                >
-                  Experience
-                </a>
-              </li>
-              <li>
-                <a
-                  className="block px-4 py-2 hover:text-teal-500"
-                  href="#"
-                  onClick={toggleMenu}
-                >
-                  Education
-                </a>
-              </li>
+              {sections.map((section) => (
+                <li key={section}>
+                  <a
+                    className="block px-4 py-2 hover:text-teal-500"
+                    href={`#${section}`}
+                    onClick={toggleMenu}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         )}

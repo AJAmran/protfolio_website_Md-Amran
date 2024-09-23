@@ -1,4 +1,3 @@
-import React from "react";
 import myPhoto from "../assets/mdamranhossen.jpeg";
 import { motion } from "framer-motion";
 

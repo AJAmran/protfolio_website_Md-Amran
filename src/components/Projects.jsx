@@ -95,13 +95,17 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05 }}
               className="bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <img
                 src={project.image}
                 alt={project.title}
                 className="w-full h-48 object-cover"
+                loading="lazy" // Lazy loading for performance
               />
               <div className="p-6">
                 <h3 className="text-2xl font-bold mb-2 text-slate-800">
@@ -123,13 +127,19 @@ const Projects = () => {
                     <a
                       href={project.githubLink}
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
+                      aria-label={`View the GitHub repository for ${project.title}`}
                     >
                       <FaGithub className="text-xl text-primary" />
                     </a>
                   )}
                   {project.liveLink && (
-                    <a href={project.liveLink} target="_blank" rel="noreferrer">
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Visit the live demo of ${project.title}`}
+                    >
                       <FaExternalLinkAlt className="text-xl text-primary" />
                     </a>
                   )}

@@ -15,9 +15,9 @@ const experience = [
     company: "Road to Public University (Admission Coursing Center)",
     startDate: "2022-09-08",
     endDate: "2023-12-01",
-    expertise: "Microsoft Office Applications",
+    expertise: "Microsoft Office, Google Workspace, IT Support",
     description:
-      "Handled day-to-day data management tasks using Microsoft Office Suite, provided administrative support, and ensured the smooth operation of various digital processes.",
+      "Managed IT support and computer operations, utilizing Microsoft Office and Google Workspace for data management, document design, and client service, while ensuring efficient processes and troubleshooting assistance.",
   },
 ];
 
@@ -47,7 +47,7 @@ const calculateDuration = (startDate, endDate = new Date()) => {
 const Experience = () => {
   return (
     <section id="experience" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto max-w-screen-xl px-4">
         <h2 className="text-4xl font-bold text-primary text-center mb-12">
           Work Experience
         </h2>
@@ -60,6 +60,7 @@ const Experience = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-white shadow-lg rounded-lg overflow-hidden p-6 hover:shadow-xl transition-shadow duration-300"
+              aria-label={`${job.title} at ${job.company}`}
             >
               <div className="mb-4">
                 <h3 className="text-2xl font-bold text-slate-900">

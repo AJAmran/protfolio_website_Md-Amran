@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useForm } from "react-hook-form";
 import toast, { Toaster } from "react-hot-toast";
 import { motion } from "framer-motion";
@@ -46,11 +45,11 @@ const Contact = () => {
       className="py-20 bg-gradient-to-b from-gray-50 to-white"
     >
       <Toaster />
-      <div className="container mx-auto px-6 lg:px-20">
+      <div className="mx-auto max-w-screen-xl px-4">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
@@ -66,7 +65,7 @@ const Contact = () => {
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="bg-white shadow-lg rounded-lg p-10"
           >
@@ -154,7 +153,7 @@ const Contact = () => {
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             className="space-y-8"
           >

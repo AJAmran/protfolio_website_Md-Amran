@@ -7,36 +7,34 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0056A0', // Brand color
+        primary: '#0056A0',
         secondary: '#004080',
-        accent: '#FFD700',   // Accent color (gold)
+        accent: '#FFD700',
         background: '#F4F4F4',
         cardBackground: '#FFFFFF',
         text: '#333333',
         mutedText: '#7D7D7D',
-        // Add any additional colors your project needs
       },
       fontFamily: {
-        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],  // Default body font
-        heading: ['Poppins', 'Helvetica', 'Arial', 'sans-serif'], // For headings
+        sans: ['Inter', 'Helvetica', 'Arial', 'sans-serif'],
+        heading: ['Poppins', 'Helvetica', 'Arial', 'sans-serif'],
       },
       spacing: {
         '128': '32rem',
         '144': '36rem',
-        // Custom spacing for large elements
       },
       borderRadius: {
         '4xl': '2rem',
       },
       boxShadow: {
-        'custom-light': '0 4px 6px rgba(0, 0, 0, 0.1)',  // Light shadow for cards
-        'custom-dark': '0 4px 6px rgba(0, 0, 0, 0.4)',   // Stronger shadow for pop-ups
+        'custom-light': '0 4px 6px rgba(0, 0, 0, 0.1)',
+        'custom-dark': '0 4px 6px rgba(0, 0, 0, 0.4)',
       },
       screens: {
-        '3xl': '1920px',  // Support for large screens
+        '3xl': '1920px',
       },
       animation: {
-        fadeIn: 'fadeIn 1s ease-in-out', // Animation for smooth fade-in effect
+        fadeIn: 'fadeIn 1s ease-in-out',
       },
       keyframes: {
         fadeIn: {
@@ -47,8 +45,8 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/typography'),  // Typography plugin for rich text content
-    require('@tailwindcss/forms'),       // For styling forms and inputs
-    require('@tailwindcss/aspect-ratio'),  // For text clamping (Read more functionality)
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
   ],
-}
+};

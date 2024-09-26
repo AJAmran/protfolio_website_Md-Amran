@@ -1,44 +1,51 @@
-import myPhoto from "../assets/mdamranhossen.jpeg";
 import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="bg-white py-16">
+    <section id="about" className="py-20 bg-background">
       <div className="mx-auto max-w-screen-xl px-4">
-        <h2 className="text-4xl font-bold text-primary mb-8 text-center">
+        <motion.h2
+          className="text-3xl font-bold text-center text-primary mb-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           About Me
-        </h2>
-        <div className="flex items-center justify-center">
-          <motion.img
-            src={myPhoto}
-            alt="Profile"
-            className="w-44 h-44 rounded-full shadow-lg mb-6 lg:mb-0 lg:mr-8"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-          <div className="max-w-xl">
-            <motion.p
-              className="text-lg text-mutedText mb-4 text-justify"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              I am a passionate MERN Stack Developer with a keen interest in
-              building scalable web applications.
-            </motion.p>
-            <motion.p
-              className="text-lg text-mutedText"
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-            >
-              With expertise in React, Node.js, MongoDB, and Tailwind CSS, I aim
-              to create clean, efficient, and user-friendly solutions that meet
-              real-world needs.
-            </motion.p>
-          </div>
-        </div>
+        </motion.h2>
+        <motion.p
+          className="text-lg text-mutedText text-center max-w-2xl mx-auto mb-6"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          I am a passionate Full Stack Developer with experience in building
+          responsive and high-performance web applications. My expertise lies in
+          utilizing modern technologies and best practices to deliver efficient
+          solutions.
+        </motion.p>
+        <motion.p
+          className="text-lg text-mutedText text-center max-w-2xl mx-auto mb-6"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        >
+          With a focus on user experience and functionality, I strive to create
+          engaging digital experiences that not only meet the needs of
+          businesses but also resonate with users.
+        </motion.p>
+        <motion.div
+          className="flex justify-center"
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+        >
+          <a
+            href="#contact"
+            className="mt-4 inline-flex items-center justify-center px-5 py-3 text-sm font-medium text-white bg-primary rounded-md shadow-md hover:bg-secondary transition duration-300"
+          >
+            Get in Touch
+          </a>
+        </motion.div>
       </div>
     </section>
   );

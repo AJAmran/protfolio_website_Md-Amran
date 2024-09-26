@@ -29,7 +29,7 @@ const education = [
 const Education = () => {
   return (
     <section id="education" className="py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="mx-auto max-w-screen-xl px-4">
         <h2 className="text-4xl font-bold text-primary text-center mb-12">
           Education
         </h2>
@@ -42,6 +42,7 @@ const Education = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="bg-white shadow-lg rounded-lg overflow-hidden p-6 hover:shadow-xl transition-shadow duration-300"
+              aria-label={`${edu.degree} from ${edu.institution}`} // Accessibility improvement
             >
               <h3 className="text-xl md:text-2xl font-bold text-slate-900">
                 {edu.degree}

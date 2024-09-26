@@ -50,14 +50,14 @@ const Skills = () => {
           A collection of technologies and tools I use to create efficient and
           scalable web applications.
         </p>
-        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-5">
-          {skills.map((skill) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+          {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
-              className="flex flex-col items-center transition-transform transform hover:scale-105"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              className="flex flex-col items-center transition-transform transform hover:scale-110"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <skill.icon className="text-5xl text-primary mb-2" />
               <span className="text-lg font-semibold text-center">

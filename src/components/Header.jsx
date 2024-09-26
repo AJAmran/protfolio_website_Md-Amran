@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-
-// Sections for the navigation (ensure these IDs match your sections in the page)
+import resume from "../assets/Resume of Md. Amran Hossen.pdf";
 const sections = [
   "about",
   "services",
   "skills",
-  "projects", // Ensure the ID is correct
+  "projects",
   "experience",
   "education",
-  "contact", // Ensure the ID is correct
+  "contact",
 ];
 
 const Header = () => {
@@ -19,38 +18,31 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to handle scrolling and highlight active section
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            // Only set active section if it's not the hero section
-            if (sectionId !== "hero") {
-              setActiveSection(sectionId);
-            }
-          }
-        });
-      },
-      { threshold: 0.6 } // Trigger when 60% of the section is in view
-    );
+    const handleScroll = () => {
+      const sectionOffsets = sections
+        .map((section) => {
+          const el = document.getElementById(section);
+          return el ? { id: section, offset: el.offsetTop } : null;
+        })
+        .filter(Boolean);
 
-    sections.forEach((section) => {
-      const sectionElement = document.getElementById(section);
-      if (sectionElement) {
-        observer.observe(sectionElement);
-      }
-    });
+      const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-    return () => {
-      sections.forEach((section) => {
-        const sectionElement = document.getElementById(section);
-        if (sectionElement) {
-          observer.unobserve(sectionElement);
+      for (let i = sectionOffsets.length - 1; i >= 0; i--) {
+        if (scrollPosition >= sectionOffsets[i].offset) {
+          setActiveSection(sectionOffsets[i].id);
+          return;
         }
-      });
+      }
+
+      setActiveSection("");
     };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -58,8 +50,8 @@ const Header = () => {
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="md:flex md:items-center md:gap-12">
-            <h1 className="text-xl font-heading font-semibold">
-              Md Amran Hossen
+            <h1 className="text-xl font-heading font-semibold border p-[2px]">
+              Amran<span className="bg-white text-primary">Hossen</span>
             </h1>
           </div>
 
@@ -94,7 +86,8 @@ const Header = () => {
               <div className="hidden sm:flex">
                 <a
                   className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-primary"
-                  href="#"
+                  href={resume}
+                  download="Md_Amran_Hossen_Resume.pdf"
                 >
                   Download Resume
                 </a>

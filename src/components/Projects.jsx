@@ -83,7 +83,7 @@ const projects = [
 const Projects = () => {
   return (
     <section id="projects" className="py-16 bg-background">
-      <div className="mx-auto max-w-screen-xl px-4">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-primary mb-6 text-center">
           My Projects
         </h2>

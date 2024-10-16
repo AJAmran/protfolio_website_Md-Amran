@@ -4,7 +4,7 @@ import { FaMillSign } from 'react-icons/fa6';
 const Footer = () => {
   return (
     <footer className="bg-primary text-white py-6">
-      <div className="mx-auto max-w-screen-xl px-4 flex flex-col items-center space-y-4">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 flex flex-col items-center space-y-4">
         <p className="text-sm">&copy; 2024 Md. Amran Hossen. All rights reserved.</p>
         <div className="flex space-x-6">
           <a href="https://github.com" target="_blank" rel="noreferrer">

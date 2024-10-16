@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <section id="about" className="py-20 bg-background">
-      <div className="mx-auto max-w-screen-xl px-4">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <motion.h2
           className="text-3xl font-bold text-center text-primary mb-8"
           initial={{ opacity: 0, y: 50 }}

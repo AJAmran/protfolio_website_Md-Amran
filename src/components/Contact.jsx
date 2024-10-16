@@ -45,7 +45,7 @@ const Contact = () => {
       className="py-20 bg-gradient-to-b from-gray-50 to-white"
     >
       <Toaster />
-      <div className="mx-auto max-w-screen-xl px-4">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}

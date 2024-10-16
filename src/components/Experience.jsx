@@ -47,7 +47,7 @@ const calculateDuration = (startDate, endDate = new Date()) => {
 const Experience = () => {
   return (
     <section id="experience" className="py-16 bg-gray-50">
-      <div className="mx-auto max-w-screen-xl px-4">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-primary text-center mb-12">
           Work Experience
         </h2>

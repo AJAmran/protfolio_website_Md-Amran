@@ -40,10 +40,7 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
-    >
+    <section id="contact" className="py-20 bg-white">
       <Toaster />
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
@@ -53,7 +50,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-primary mb-4">Get in Touch</h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-primary mb-6">
+            Get in Touch
+          </h2>
           <p className="text-lg text-mutedText max-w-2xl mx-auto">
             Whether you have a question, want to collaborate, or just want to
             say hello, feel free to reach out.
@@ -67,9 +66,9 @@ const Contact = () => {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white shadow-lg rounded-lg p-10"
+            className="bg-gray-50 shadow-md border rounded-lg p-10"
           >
-            <h3 className="text-3xl font-semibold text-primary mb-6 text-center">
+            <h3 className="text-base md:text-lg lg:text-xl font-semibold text-primary mb-6 text-center">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -158,7 +157,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <div className="text-center lg:text-left">
-              <h3 className="text-3xl font-semibold text-primary mb-4">
+              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-primary mb-6 text-center">
                 Contact Information
               </h3>
               <p className="text-lg text-mutedText">

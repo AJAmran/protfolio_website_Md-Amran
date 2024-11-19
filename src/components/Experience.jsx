@@ -46,9 +46,9 @@ const calculateDuration = (startDate, endDate = new Date()) => {
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-gray-50">
+    <section id="experience" className="py-16 bg-white">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-primary text-center mb-12">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center mb-6">
           Work Experience
         </h2>
         <div className="flex md:flex-row flex-col justify-center gap-5">
@@ -63,7 +63,7 @@ const Experience = () => {
               aria-label={`${job.title} at ${job.company}`}
             >
               <div className="mb-4">
-                <h3 className="text-2xl font-bold text-slate-900">
+                <h3 className="text-base md:text-lg lg:text-xl font-bold text-slate-900">
                   {job.title}
                 </h3>
                 <p className="text-lg text-primary font-medium">

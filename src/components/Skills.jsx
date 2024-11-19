@@ -40,13 +40,12 @@ const Skills = () => {
     { name: "ShadcnUI", icon: FaReact },
   ];
 
-  // Framer Motion animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1, // Controls the delay between each skill appearing
+        staggerChildren: 0.1,
       },
     },
   };
@@ -57,15 +56,15 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="bg-background py-16">
+    <section id="skills" className="bg-slate-200 py-16">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         {/* Animated title */}
         <motion.h2
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.5 }} // Ensures it animates every time this section comes into view
-          className="text-4xl font-bold text-primary mb-2 text-center"
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center"
         >
           My Skills
         </motion.h2>
@@ -75,16 +74,16 @@ const Skills = () => {
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.5 }} // Repeated animation on scroll into view
-          className="text-lg text-mutedText mb-10 text-center"
+          viewport={{ once: false, amount: 0.5 }}
+          className="text-lg text-mutedText mb-10 text-center max-w-2xl mx-auto"
         >
           A collection of technologies and tools I use to create efficient and
           scalable web applications.
         </motion.p>
 
-        {/* Skill icons with scroll animation */}
+        {/* Skill icons */}
         <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-9 gap-5"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -93,14 +92,12 @@ const Skills = () => {
           {skills.map((skill) => (
             <motion.div
               key={skill.name}
-              className="flex flex-col items-center transition-transform transform hover:scale-110"
+              className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-110"
               variants={itemVariants}
               aria-label={`${skill.name} icon`}
             >
               <skill.icon className="text-5xl text-primary mb-2" />
-              <span className="text-lg font-semibold text-center">
-                {skill.name}
-              </span>
+              <span className="text-lg font-semibold">{skill.name}</span>
             </motion.div>
           ))}
         </motion.div>

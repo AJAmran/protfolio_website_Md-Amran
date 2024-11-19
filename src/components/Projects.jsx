@@ -84,14 +84,14 @@ const Projects = () => {
   return (
     <section id="projects" className="py-16 bg-background">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-primary mb-6 text-center">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center">
           My Projects
         </h2>
-        <p className="text-lg text-mutedText mb-10 text-center">
+        <p className="text-lg text-mutedText mb-10 text-center max-w-2xl mx-auto">
           A showcase of some of the professional projects I have worked on,
           utilizing a wide range of modern technologies.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
           {projects.map((project, index) => (
             <motion.div
               key={index}
@@ -108,7 +108,7 @@ const Projects = () => {
                 loading="lazy" // Lazy loading for performance
               />
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2 text-slate-800">
+                <h3 className="text-sm md:text-base lg:text-lg font-bold mb-2 text-slate-800">
                   {project.title}
                 </h3>
                 <p className="text-mutedText mb-4">{project.description}</p>

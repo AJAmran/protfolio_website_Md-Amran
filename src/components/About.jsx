@@ -2,19 +2,22 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-background">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-16 bg-background">
+      <div className="mx-auto max-w-screen-lg px-6 sm:px-8 lg:px-12">
+        {/* Heading */}
         <motion.h2
-          className="text-3xl font-bold text-center text-primary mb-8"
+          className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-primary mb-6"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           About Me
         </motion.h2>
+
+        {/* First Paragraph */}
         <motion.p
-          className="text-lg text-mutedText text-center max-w-2xl mx-auto mb-6"
-          initial={{ opacity: 0, x: -50 }}
+          className="text-sm sm:text-base lg:text-lg text-mutedText text-center max-w-xl mx-auto mb-5"
+          initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
         >
@@ -23,9 +26,11 @@ const About = () => {
           utilizing modern technologies and best practices to deliver efficient
           solutions.
         </motion.p>
+
+        {/* Second Paragraph */}
         <motion.p
-          className="text-lg text-mutedText text-center max-w-2xl mx-auto mb-6"
-          initial={{ opacity: 0, x: 50 }}
+          className="text-sm sm:text-base lg:text-lg text-mutedText text-center max-w-xl mx-auto mb-6"
+          initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4, duration: 0.6 }}
         >
@@ -33,15 +38,17 @@ const About = () => {
           engaging digital experiences that not only meet the needs of
           businesses but also resonate with users.
         </motion.p>
+
+        {/* Call-to-Action Button */}
         <motion.div
           className="flex justify-center"
-          initial={{ opacity: 0, scale: 0.8 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
         >
           <a
             href="#contact"
-            className="mt-4 inline-flex items-center justify-center px-5 py-3 text-sm font-medium text-white bg-primary rounded-md shadow-md hover:bg-secondary transition duration-300"
+            className="px-5 sm:px-6 py-2 sm:py-3 text-xs sm:text-sm lg:text-base font-medium bg-primary text-white rounded-full shadow-lg hover:bg-primary-dark transition-all duration-300"
           >
             Get in Touch
           </a>

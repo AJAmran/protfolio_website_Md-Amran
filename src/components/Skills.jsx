@@ -63,7 +63,7 @@ const Skills = () => {
 
   return (
     <section id="skills" className="bg-background md:py-8 lg:py-16 py-6">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title Animation */}
         <motion.h2
           initial={{ opacity: 0, scale: 0.8 }}

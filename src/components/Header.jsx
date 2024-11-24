@@ -15,7 +15,12 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
 
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => !prev);
+
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = isMenuOpen ? "auto" : "hidden";
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,9 +49,16 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    return () => {
+      // Reset overflow on unmount
+      document.body.style.overflow = "auto";
+    };
+  }, []);
+
   return (
     <header className="bg-primary text-white sticky top-0 z-50">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link
             to="/"
@@ -62,7 +74,7 @@ const Header = () => {
                 <li key={section}>
                   <a
                     href={`#${section}`}
-                    className={`text-white relative hover:text-teal-500 transition ${
+                    className={`relative text-white hover:text-teal-500 transition ${
                       activeSection === section ? "underline-active" : ""
                     }`}
                   >
@@ -89,7 +101,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="block md:hidden rounded bg-gray-100 p-2 text-gray-600 hover:text-gray-700"
+            className="block md:hidden rounded bg-gray-100 p-3 text-gray-600 hover:text-gray-700 focus:outline-none"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             onClick={toggleMenu}

@@ -40,39 +40,38 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="md:py-8 lg:py-16 py-6 bg-background">
+    <section id="contact" className="py-8 md:py-12 lg:py-16 bg-background">
       <Toaster />
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-10 md:mb-12"
         >
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-center text-primary mb-6">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary mb-4">
             Get in Touch
           </h2>
-          <p className="text-lg text-mutedText max-w-2xl mx-auto">
+          <p className="text-sm md:text-base lg:text-lg text-mutedText max-w-2xl mx-auto">
             Whether you have a question, want to collaborate, or just want to
             say hello, feel free to reach out.
           </p>
         </motion.div>
 
-        {/* Grid Layout: Contact Form & Info */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-gray-50 shadow-md border rounded-lg p-10"
+            className="bg-white shadow-md border rounded-lg p-6 sm:p-8"
           >
             <h3 className="text-base md:text-lg lg:text-xl font-semibold text-primary mb-6 text-center">
               Send a Message
             </h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              {/* Name Field */}
               <div>
                 <label
                   htmlFor="name"
@@ -93,8 +92,6 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-
-              {/* Email Field */}
               <div>
                 <label
                   htmlFor="email"
@@ -115,8 +112,6 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-
-              {/* Message Field */}
               <div>
                 <label
                   htmlFor="message"
@@ -137,8 +132,6 @@ const Contact = () => {
                   </p>
                 )}
               </div>
-
-              {/* Submit Button */}
               <motion.button
                 type="submit"
                 whileHover={{ scale: 1.05 }}
@@ -154,60 +147,59 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
           >
-            <div className="text-center lg:text-left">
-              <h3 className="text-base md:text-lg lg:text-xl font-semibold text-primary mb-6 text-center">
-                Contact Information
-              </h3>
-              <p className="text-lg text-mutedText">
-                Reach out through any of the following channels:
-              </p>
-            </div>
-
-            {/* Info Details */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <FaPhone className="text-primary text-xl" />
-                <span className="text-lg text-gray-700">+123 456 7890</span>
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-base md:text-lg lg:text-xl font-semibold text-primary mb-4">
+                  Contact Information
+                </h3>
+                <p className="text-sm md:text-base lg:text-lg text-mutedText">
+                  Reach out through any of the following channels:
+                </p>
               </div>
-              <div className="flex items-center space-x-4">
-                <FaEnvelope className="text-primary text-xl" />
-                <span className="text-lg text-gray-700">
-                  info@yourwebsite.com
-                </span>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-4">
+                  <FaPhone className="text-primary text-xl" />
+                  <span className="text-sm md:text-base lg:text-lg text-gray-700">
+                    +123 456 7890
+                  </span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <FaEnvelope className="text-primary text-xl" />
+                  <span className="text-sm md:text-base lg:text-lg text-gray-700">
+                    info@yourwebsite.com
+                  </span>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <FaMapMarkerAlt className="text-primary text-xl" />
+                  <span className="text-sm md:text-base lg:text-lg text-gray-700">
+                    123 Street, Your City
+                  </span>
+                </div>
               </div>
-              <div className="flex items-center space-x-4">
-                <FaMapMarkerAlt className="text-primary text-xl" />
-                <span className="text-lg text-gray-700">
-                  123 Street, Your City
-                </span>
+              <div className="flex justify-center lg:justify-start space-x-6 mt-6">
+                <motion.a
+                  href="#"
+                  whileHover={{ scale: 1.1 }}
+                  className="text-primary text-2xl hover:text-secondary transition"
+                >
+                  <FaFacebookF />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  whileHover={{ scale: 1.1 }}
+                  className="text-primary text-2xl hover:text-secondary transition"
+                >
+                  <FaTwitter />
+                </motion.a>
+                <motion.a
+                  href="#"
+                  whileHover={{ scale: 1.1 }}
+                  className="text-primary text-2xl hover:text-secondary transition"
+                >
+                  <FaLinkedinIn />
+                </motion.a>
               </div>
-            </div>
-
-            {/* Social Media Links */}
-            <div className="flex justify-center lg:justify-start space-x-6 mt-6">
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                className="text-primary text-2xl hover:text-secondary transition"
-              >
-                <FaFacebookF />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                className="text-primary text-2xl hover:text-secondary transition"
-              >
-                <FaTwitter />
-              </motion.a>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.1 }}
-                className="text-primary text-2xl hover:text-secondary transition"
-              >
-                <FaLinkedinIn />
-              </motion.a>
             </div>
           </motion.div>
         </div>

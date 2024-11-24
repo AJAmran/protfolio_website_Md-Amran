@@ -7,8 +7,8 @@ import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import Service from "./components/Service";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <Projects />
       <Experience />
       <Education />
-      <Contact />
+      <Contact /> 
       <Footer />
     </>
   );

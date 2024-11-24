@@ -5,16 +5,18 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen w-full flex items-center bg-cover bg-center bg-no-repeat overflow-x-hidden"
       style={{
         backgroundImage: `url(${heroImage})`,
+        backgroundSize: "cover", // Ensure the image covers the entire section
+        backgroundPosition: "center", // Center the image
       }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-70"></div>
 
       {/* Content */}
-      <div className="relative container mx-auto px-6 sm:px-8 lg:px-16 flex flex-col justify-center items-center text-center py-12 lg:py-20">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-16 flex flex-col justify-center items-center text-center py-12 sm:py-16 lg:py-20">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,20 +25,20 @@ const Hero = () => {
         >
           {/* Heading */}
           <motion.h1
-            className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-gray-200"
+            className="text-xl sm:text-2xl lg:text-4xl font-bold tracking-tight text-gray-200"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
             Md Amran Hossen
-            <strong className="block mt-2 text-primary text-2xl sm:text-3xl lg:text-4xl font-extrabold">
+            <strong className="block mt-2 text-primary text-2xl sm:text-3xl lg:text-5xl font-extrabold">
               Full Stack Developer
             </strong>
           </motion.h1>
 
           {/* Description */}
           <motion.p
-            className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto"
+            className="mt-4 sm:mt-6 text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}

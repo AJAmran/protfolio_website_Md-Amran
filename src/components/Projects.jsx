@@ -1,5 +1,9 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import biccbd from "../assets/projects/biccbd.png"
+import xhti from "../assets/projects/xhitbd.png"
+import scoutsss from "../assets/projects/scouts-poll.vercel.app_auth.png"
+import trendHavens from "../assets/projects/Trendhaven.png"
 
 const projects = [
   {
@@ -20,7 +24,7 @@ const projects = [
     ],
     githubLink: "",
     liveLink: "https://bicc-bd.com",
-    image: "/bicc-project.jpg",
+    image: biccbd,
   },
   {
     title: "Xinxian Hospitality Training Institute",
@@ -40,7 +44,7 @@ const projects = [
     ],
     githubLink: "",
     liveLink: "https://xhti-bd.com",
-    image: "/xhti-project.jpg",
+    image: xhti,
   },
   {
     title: "Scouts Poll",
@@ -56,9 +60,9 @@ const projects = [
       "MongoDB",
       "Recharts",
     ],
-    githubLink: "https://github.com/scoutspoll",
-    liveLink: "https://scoutspoll.com",
-    image: "/scouts-poll-project.jpg",
+    githubLink: "https://github.com/UpalBarua/scouts-poll.git",
+    liveLink: "https://scouts-poll.vercel.app/auth",
+    image: scoutsss,
   },
   {
     title: "TrendHaven",
@@ -76,13 +80,13 @@ const projects = [
     ],
     githubLink: "https://github.com/trendhaven-client",
     liveLink: "https://trendhaven.com",
-    image: "/trendhaven-project.jpg",
+    image: trendHavens,
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-16 bg-background">
+    <section id="projects" className="md:py-8 lg:py-16 py-6 bg-white">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center">
           My Projects

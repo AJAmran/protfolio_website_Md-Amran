@@ -48,8 +48,8 @@ const services = [
 
 export default function Service() {
   return (
-    <section id="services" className="bg-white text-text">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <section id="services" className="bg-white  text-text">
+      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 md:py-8 lg:py-16 py-6">
         {/* Heading */}
         <div className="mx-auto max-w-lg text-center">
           <motion.h2

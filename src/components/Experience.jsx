@@ -1,25 +1,5 @@
 import { motion } from "framer-motion";
-
-const experience = [
-  {
-    title: "Web Developer",
-    company: "Bangabandhu International Conference Center",
-    startDate: "2024-02-01",
-    endDate: null,
-    expertise: "IT (Application)",
-    description:
-      "Developing and maintaining web applications, integrating modern technologies such as React.js, Tailwind CSS, and Node.js to enhance user experience and improve internal systems.",
-  },
-  {
-    title: "Computer Operator",
-    company: "Road to Public University (Admission Coursing Center)",
-    startDate: "2022-09-08",
-    endDate: "2023-12-01",
-    expertise: "Microsoft Office, Google Workspace, IT Support",
-    description:
-      "Managed IT support and computer operations, utilizing Microsoft Office and Google Workspace for data management, document design, and client service, while ensuring efficient processes and troubleshooting assistance.",
-  },
-];
+import { FaBriefcase } from "react-icons/fa";
 
 // Helper function to calculate dynamic years and months of experience
 const calculateDuration = (startDate, endDate = new Date()) => {
@@ -44,14 +24,35 @@ const calculateDuration = (startDate, endDate = new Date()) => {
   return `${yearText}${yearText && monthText ? " " : ""}${monthText}`;
 };
 
+const experience = [
+  {
+    title: "Web Developer",
+    company: "Bangabandhu International Conference Center",
+    startDate: "2024-02-01",
+    endDate: null,
+    expertise: "IT (Application)",
+    description:
+      "Developing and maintaining web applications, integrating modern technologies such as React.js, Tailwind CSS, and Node.js to enhance user experience and improve internal systems.",
+  },
+  {
+    title: "Computer Operator",
+    company: "Road to Public University (Admission Coursing Center)",
+    startDate: "2022-09-08",
+    endDate: "2023-12-01",
+    expertise: "Microsoft Office, Google Workspace, IT Support",
+    description:
+      "Managed IT support and computer operations, utilizing Microsoft Office and Google Workspace for data management, document design, and client service, while ensuring efficient processes and troubleshooting assistance.",
+  },
+];
+
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-white">
+    <section id="experience" className="md:py-8 lg:py-16 py-6 bg-background">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center mb-6">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center mb-10">
           Work Experience
         </h2>
-        <div className="flex md:flex-row flex-col justify-center gap-5">
+        <div className="flex md:flex-row flex-col justify-center gap-8">
           {experience.map((job, index) => (
             <motion.div
               key={index}
@@ -59,16 +60,18 @@ const Experience = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white shadow-lg rounded-lg overflow-hidden p-6 hover:shadow-xl transition-shadow duration-300"
+              className="bg-white shadow-lg rounded-lg overflow-hidden p-6 w-full max-w-md hover:shadow-xl transition-shadow duration-300"
               aria-label={`${job.title} at ${job.company}`}
             >
-              <div className="mb-4">
-                <h3 className="text-base md:text-lg lg:text-xl font-bold text-slate-900">
-                  {job.title}
-                </h3>
-                <p className="text-lg text-primary font-medium">
-                  {job.company}
-                </p>
+              <div className="flex items-center mb-4">
+                {/* Job Icon */}
+                <div className="text-primary text-3xl mr-4">
+                  <FaBriefcase />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">{job.title}</h3>
+                  <p className="text-primary font-medium">{job.company}</p>
+                </div>
               </div>
               <div className="mb-4">
                 <p className="text-slate-500 italic">

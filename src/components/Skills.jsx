@@ -50,30 +50,36 @@ const Skills = () => {
     },
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotate: 0,
+      transition: { duration: 0.5 },
+    },
   };
 
   return (
-    <section id="skills" className="bg-slate-200 py-16">
+    <section id="skills" className="bg-background md:py-8 lg:py-16 py-6">
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        {/* Animated title */}
+        {/* Title Animation */}
         <motion.h2
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.5 }}
           className="text-xl sm:text-2xl lg:text-3xl text-primary font-bold text-center"
         >
           My Skills
         </motion.h2>
 
-        {/* Animated subtitle */}
+        {/* Subtitle Animation */}
         <motion.p
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: false, amount: 0.5 }}
           className="text-lg text-mutedText mb-10 text-center max-w-2xl mx-auto"
         >
@@ -81,7 +87,7 @@ const Skills = () => {
           scalable web applications.
         </motion.p>
 
-        {/* Skill icons */}
+        {/* Skill Cards */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5"
           variants={containerVariants}
@@ -92,9 +98,8 @@ const Skills = () => {
           {skills.map((skill) => (
             <motion.div
               key={skill.name}
-              className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md transition-transform transform hover:scale-110"
-              variants={itemVariants}
-              aria-label={`${skill.name} icon`}
+              className="flex flex-col items-center p-4 bg-white rounded-lg shadow-lg transform transition hover:scale-105 hover:shadow-2xl"
+              variants={cardVariants}
             >
               <skill.icon className="text-5xl text-primary mb-2" />
               <span className="text-lg font-semibold">{skill.name}</span>

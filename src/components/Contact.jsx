@@ -40,7 +40,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="md:py-8 lg:py-16 py-6 bg-background">
       <Toaster />
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
@@ -168,17 +168,17 @@ const Contact = () => {
             {/* Info Details */}
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
-                <FaPhone className="text-primary text-2xl" />
+                <FaPhone className="text-primary text-xl" />
                 <span className="text-lg text-gray-700">+123 456 7890</span>
               </div>
               <div className="flex items-center space-x-4">
-                <FaEnvelope className="text-primary text-2xl" />
+                <FaEnvelope className="text-primary text-xl" />
                 <span className="text-lg text-gray-700">
                   info@yourwebsite.com
                 </span>
               </div>
               <div className="flex items-center space-x-4">
-                <FaMapMarkerAlt className="text-primary text-2xl" />
+                <FaMapMarkerAlt className="text-primary text-xl" />
                 <span className="text-lg text-gray-700">
                   123 Street, Your City
                 </span>

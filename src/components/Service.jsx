@@ -1,102 +1,164 @@
 import {
-  FaCloud,
-  FaCode,
-  FaDatabase,
-  FaFileCode,
+  FaLaptopCode,
   FaMobileAlt,
+  FaServer,
+  FaDatabase,
+  FaCode,
+  FaCloud
 } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { IoRocketSharp } from "react-icons/io5";
 
-// Define services data
 const services = [
   {
     title: "Custom Web Development",
-    description:
-      "Tailored web development solutions to meet your specific business needs.",
-    icon: <FaFileCode className="h-8 w-8 text-primary" aria-hidden="true" />,
+    description: "Bespoke solutions crafted with cutting-edge technologies tailored to your business objectives.",
+    icon: <FaLaptopCode className="h-5 w-5" />,
+    color: "from-blue-500 to-blue-600"
   },
   {
     title: "Responsive Web Design",
-    description:
-      "Create websites that provide an optimal viewing experience on any device.",
-    icon: <FaMobileAlt className="h-8 w-8 text-primary" aria-hidden="true" />,
+    description: "Flawless adaptive designs that deliver optimal viewing experiences across all devices.",
+    icon: <FaMobileAlt className="h-5 w-5" />,
+    color: "from-purple-500 to-purple-600"
   },
   {
     title: "Front-End Development",
-    description:
-      "Craft visually appealing and user-friendly interfaces to enhance user experience.",
-    icon: <FaCode className="h-8 w-8 text-primary" aria-hidden="true" />,
+    description: "Engaging user interfaces built with React, Next.js and modern component architectures.",
+    icon: <FaCode className="h-5 w-5" />,
+    color: "from-emerald-500 to-emerald-600"
   },
   {
     title: "Back-End Development",
-    description:
-      "Build secure and scalable server-side logic for robust applications.",
-    icon: <FaCloud className="h-8 w-8 text-primary" aria-hidden="true" />,
+    description: "Scalable server solutions powered by Node.js, Express and cloud-native patterns.",
+    icon: <FaServer className="h-5 w-5" />,
+    color: "from-rose-500 to-rose-600"
   },
   {
-    title: "Database Integration",
-    description:
-      "Integrate efficient databases to enhance performance and scalability.",
-    icon: <FaDatabase className="h-8 w-8 text-primary" aria-hidden="true" />,
+    title: "Database Solutions",
+    description: "Optimized data management systems with MongoDB, PostgreSQL and efficient schemas.",
+    icon: <FaDatabase className="h-5 w-5" />,
+    color: "from-amber-500 to-amber-600"
   },
   {
     title: "API Development",
-    description:
-      "Design and implement custom APIs for seamless communication between services.",
-    icon: <FaCode className="h-8 w-8 text-primary" aria-hidden="true" />,
-  },
+    description: "High-performance REST and GraphQL APIs with robust security and documentation.",
+    icon: <FaCloud className="h-5 w-5" />,
+    color: "from-indigo-500 to-indigo-600"
+  }
 ];
 
-export default function Service() {
-  return (
-    <section
-      id="services"
-      className="bg-white text-text py-8 sm:py-12 lg:py-16 overflow-x-hidden"
-    >
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
-        <header className="mx-auto max-w-lg text-center mb-12">
-          <motion.h2
-            className="text-2xl sm:text-3xl lg:text-4xl text-primary font-bold"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            My Web Development Services
-          </motion.h2>
-          <motion.p
-            className="mt-3 text-base sm:text-lg lg:text-xl text-mutedText"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            Offering a suite of personalized web development services to elevate
-            your online presence.
-          </motion.p>
-        </header>
+const Service = () => {
+  const container = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 w-full">
+  const item = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1]
+      }
+    }
+  };
+
+  return (
+    <section id="services" className="relative py-20 sm:py-24 lg:py-32 bg-white overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 overflow-hidden opacity-5">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-[length:100px_100px]"></div>
+      </div>
+
+      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-blue-50 text-blue-600 mb-4">
+            <IoRocketSharp className="mr-2" />
+            Services Overview
+          </span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Comprehensive Development Services
+          </h2>
+          <p className="text-lg text-gray-600">
+            End-to-end solutions designed to transform your digital vision into reality
+          </p>
+        </motion.div>
+
+        {/* Services grid */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
           {services.map((service, index) => (
-            <motion.article
+            <motion.div
               key={index}
-              className="rounded-lg border border-gray-300 bg-cardBackground p-6 sm:p-8 shadow-md transition-transform transform hover:scale-105 hover:border-primary hover:shadow-lg"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
-              style={{ maxWidth: "100%" }}
+              variants={item}
+              whileHover={{ y: -8 }}
+              className="group relative bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 overflow-hidden"
             >
-              <div className="flex justify-center mb-4">{service.icon}</div>
-              <h3 className="mt-4 text-lg sm:text-xl lg:text-2xl font-bold text-primary text-center">
-                {service.title}
-              </h3>
-              <p className="mt-2 text-sm sm:text-base lg:text-lg text-mutedText text-center">
-                {service.description}
-              </p>
-            </motion.article>
+              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${service.color}"></div>
+              <div className="relative p-8 h-full">
+                <div className={`w-12 h-12 flex items-center justify-center rounded-lg mb-6 bg-gradient-to-br ${service.color}`}>
+                  <div className="text-white">
+                    {service.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-gray-500 transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 group-hover:text-gray-500 transition-colors duration-300">
+                  {service.description}
+                </p>
+              </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="mt-20 text-center"
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 sm:p-10 lg:p-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">
+              Ready to start your project?
+            </h3>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+              Let&#39;s collaborate to build something amazing together.
+            </p>
+            <a
+              href="#contact"
+              className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-all duration-200"
+            >
+              Get Started
+            </a>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
-}
+};
+
+export default Service;

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
 import ProjectCard from "./ProjectCard";
 
 const ProjectsSection = ({ 
@@ -11,7 +12,7 @@ const ProjectsSection = ({
 }) => {
   return (
     <section id="projects" className={`py-12 md:py-16 lg:py-20 bg-gray-50 ${className}`}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +20,7 @@ const ProjectsSection = ({
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3">
             {title}
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -40,6 +41,14 @@ const ProjectsSection = ({
       </div>
     </section>
   );
+};
+ProjectsSection.propTypes = {
+  projects: PropTypes.array.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  className: PropTypes.string,
+  gridClass: PropTypes.string,
+  cardClass: PropTypes.string,
 };
 
 export default ProjectsSection;

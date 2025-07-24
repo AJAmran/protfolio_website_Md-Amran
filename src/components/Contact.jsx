@@ -29,18 +29,16 @@ const Contact = () => {
 
   const onSubmit = async () => {
     try {
-      const result = await emailjs.sendForm(
+      await emailjs.sendForm(
         "service_xl9nmjv",
         "template_ajepm1c",
         formRef.current,
         "J8xQTtsNvo1iklkx7"
       );
 
-      console.log("EmailJS success:", result);
       toast.success("Message sent successfully!", { duration: 4000 });
       reset();
     } catch (error) {
-      console.error("EmailJS error:", error);
       toast.error(`Failed to send message: ${error.text || error.message}`, {
         duration: 4000,
       });

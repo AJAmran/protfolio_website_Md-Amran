@@ -1,4 +1,4 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 import { FaChevronLeft, FaChevronRight, FaExpand } from "react-icons/fa";
 
 const ProjectImageCarousel = ({ 
@@ -11,7 +11,6 @@ const ProjectImageCarousel = ({
   className = ""
 }) => {
 
-    console.log("images", images);
   return (
     <div className={`relative w-full overflow-hidden group ${className}`}>
       {/* Expand Button */}
@@ -76,6 +75,20 @@ const ProjectImageCarousel = ({
       )}
     </div>
   );
+};
+
+ProjectImageCarousel.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  currentIndex: PropTypes.number.isRequired,
+  onNext: PropTypes.func.isRequired,
+  onPrev: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
+  onExpand: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default ProjectImageCarousel;

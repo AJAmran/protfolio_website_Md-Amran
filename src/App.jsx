@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -9,30 +10,28 @@ import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ProjectsSection from "./components/projects/ProjectsSection";
-import projects from "./data/projectData";
-
 import Service from "./components/Service";
 import ScrollToTop from "./components/ScrollToTop";
-import { Helmet } from "react-helmet";
+import projects from "./data/projectData";
 
 function App() {
   const location = useLocation();
-  
+
   return (
     <>
       <Helmet>
         <title>Md. Amran Hossen | Senior MERN Stack Developer</title>
         <meta
           name="description"
-          content="Professional portfolio of Md. Amran Hossen, Senior MERN Stack Developer with 3+ years of experience building scalable web applications."
+          content="Portfolio of Md. Amran Hossen, Senior MERN Stack Developer. Explore React, Node.js, MongoDB projects and expertise in web development."
         />
         <meta property="og:image" content="/social-preview.jpg" />
         <meta name="theme-color" content="#3b82f6" />
       </Helmet>
-      
+
       <ScrollToTop />
       <Header />
-      
+
       <AnimatePresence mode="wait">
         <motion.main
           key={location.pathname}
@@ -56,7 +55,7 @@ function App() {
           <Contact />
         </motion.main>
       </AnimatePresence>
-      
+
       <Footer />
     </>
   );

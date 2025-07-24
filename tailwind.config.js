@@ -13,8 +13,8 @@ export default {
         mutedText: "#7D7D7D",
       },
       fontFamily: {
-        sans: ["Inter", "Helvetica", "Arial", "sans-serif"],
-        heading: ["Poppins", "Helvetica", "Arial", "sans-serif"],
+        sans: ["DM Sans", "Helvetica", "Arial", "sans-serif"],
+        heading: ["Space Grotesk", "Helvetica", "Arial", "sans-serif"],
       },
     },
   },

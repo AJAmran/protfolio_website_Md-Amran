@@ -51,11 +51,6 @@ const Footer = () => {
 
   return (
     <footer className="relative bg-gray-900 text-gray-300 pt-12 sm:pt-16 pb-6 sm:pb-8 overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid-dark.svg')] bg-[length:80px_80px] sm:bg-[length:100px_100px]"></div>
-      </div>
-
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-12 mb-10 sm:mb-12">
           {/* Brand info */}
@@ -70,9 +65,13 @@ const Footer = () => {
               Md. Amran Hossen
             </h2>
             <p className="text-xs sm:text-sm md:text-base font-sans font-normal text-gray-400 leading-relaxed max-w-xs sm:max-w-sm">
-              Professional MERN Stack Developer creating modern web applications with cutting-edge technologies.
+              Professional MERN Stack Developer creating modern web applications
+              with cutting-edge technologies.
             </p>
-            <nav aria-label="Social media links" className="flex space-x-3 sm:space-x-4">
+            <nav
+              aria-label="Social media links"
+              className="flex space-x-3 sm:space-x-4"
+            >
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
@@ -164,7 +163,8 @@ const Footer = () => {
               Location
             </h3>
             <address className="not-italic text-xs sm:text-sm md:text-base font-sans font-normal text-gray-400 leading-relaxed">
-              Agargaon, Sher-E-Bangla Nagar<br />
+              Agargaon, Sher-E-Bangla Nagar
+              <br />
               Dhaka-1207, Bangladesh
             </address>
           </motion.div>
